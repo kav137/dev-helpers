@@ -14,7 +14,7 @@ PURPOSE="Purpose:\n---\nPLACEHOLDER. All the changes described in commit message
     echo -e "$PURPOSE\nChanges (in chronological order):" && \
     echo "---" && \
     (
-        git log -n $1 --pretty=format:"- [%h] %s%n%b" --reverse | \
+        git log -n $1 --first-parent --pretty=format:"- [%h] %s%n%b" --reverse | \
         grep "\S"
     )
 ) | pbcopy
